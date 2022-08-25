@@ -50,7 +50,7 @@ kubectl delete pod hello-pod -n dev
 kubectl run hello-pod --image=tomcat -n dev --dry-run=client -o yaml
 ```
 ### Output: 
-``[ec2-user@ip-172-31-40-159 ~]$ kubectl run hello-pod --image=tomcat -n dev --dry-run=client -o yaml
+``[ec2-user@ip-x-x-x-159 ~]$ kubectl run hello-pod --image=tomcat -n dev --dry-run=client -o yaml
 apiVersion: v1
 kind: Pod
 metadata:
@@ -74,8 +74,8 @@ kubectl run pod-name --image=imagename -n namespace-name --dry-run=client -o yam
 ```
 #### EX:
 ``
-ec2-user@ip-172-31-40-159 ~]$ kubectl run hello-pod --image=tomcat -n dev --dry-run=client -o yaml > pod.yaml
-[ec2-user@ip-172-31-40-159 ~]$ cat pod.yaml 
+ec2-user@ip-x-x-x-159 ~]$ kubectl run hello-pod --image=tomcat -n dev --dry-run=client -o yaml > pod.yaml
+[ec2-user@ip-x-x-x-159 ~]$ cat pod.yaml 
 apiVersion: v1
 kind: Pod
 metadata:
@@ -230,12 +230,12 @@ deployment.apps/deploy1 scaled
 ## Verify Deployment / Scale 
 
 ``
-[ec2-user@ip-172-31-40-159 ~]$ kubectl get deployment -n dev
+[ec2-user@ip-x-x-x-159 ~]$ kubectl get deployment -n dev
 NAME      READY   UP-TO-DATE   AVAILABLE   AGE
 deploy1   1/1     1            1           7m45s
-[ec2-user@ip-172-31-40-159 ~]$ kubectl scale deployment deploy1 --replicas=2 -n dev
+[ec2-user@ip-x-x-x-159 ~]$ kubectl scale deployment deploy1 --replicas=2 -n dev
 deployment.apps/deploy1 scaled
-[ec2-user@ip-172-31-40-159 ~]$ kubectl get deployment -n dev
+[ec2-user@ip-x-x-x-159 ~]$ kubectl get deployment -n dev
 NAME      READY   UP-TO-DATE   AVAILABLE   AGE
 deploy1   2/2     2            2           9m23s
 ``
@@ -329,7 +329,7 @@ deployment "deployment-name" successfully rolled out
 
 ## Checck Revision of Deployment 
 ``
-[ec2-user@ip-172-31-40-159 ~]$ kubectl rollout history deployment/deployment-name -n dev --revision=2
+[ec2-user@ip-x-x-x-159 ~]$ kubectl rollout history deployment/deployment-name -n dev --revision=2
 deployment.apps/deployment-name with revision #2
 Pod Template:
   Labels:	app=deployment-name
@@ -343,7 +343,7 @@ Pod Template:
     Mounts:	<none>
   Volumes:	<none>
 
-[ec2-user@ip-172-31-40-159 ~]$ kubectl rollout history deployment/deployment-name -n dev --revision=1
+[ec2-user@ip-x-x-x-159 ~]$ kubectl rollout history deployment/deployment-name -n dev --revision=1
 deployment.apps/deployment-name with revision #1
 Pod Template:
   Labels:	app=deployment-name
